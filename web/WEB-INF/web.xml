@@ -4,9 +4,33 @@
         <servlet-name>MyFirstServlet</servlet-name>
         <servlet-class>com.example.servlets.MyFirstServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GuessTheNumberGame</servlet-name>
+        <servlet-class>com.example.servlets.GuessTheNumberGame</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MyFirstServlet</servlet-name>
         <url-pattern>/MyFirstServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <servlet-class>com.example.servlets.HelloWorldServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <url-pattern>/HelloWorldServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.example.servlets.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/HelloServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuessTheNumberGame</servlet-name>
+        <url-pattern>/GuessTheNumberGame</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
