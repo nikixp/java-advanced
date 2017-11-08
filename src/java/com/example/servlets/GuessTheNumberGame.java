@@ -21,18 +21,19 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class GuessTheNumberGame extends HttpServlet {
 
-    Map<String, Integer> sessionStorage = new HashMap<>();
+    Map<String, NumberHunter> sessionStorage = new HashMap<>();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         String id = request.getSession().getId();
-        Integer number = sessionStorage.get(id);
-        if (number == null) {
-            number = new Random().nextInt(100);
-            sessionStorage.put(id, number);
+        NumberHunter numberHunter = sessionStorage.get(id);
+        //Integer number = sessionStorage.get(id);
+        if (numberHunter == null) {
+            numberHunter = new NumberHunter();
+            sessionStorage.put(id, numberHunter);
         }
-        System.out.println(number);
+        System.out.println(numberHunter.toString());
 
         String parameter = request.getParameter("guessNumber");
         Integer guessNumber = 0;
@@ -41,14 +42,14 @@ public class GuessTheNumberGame extends HttpServlet {
         }
         
         String message = "Enter number";
-        if (guessNumber == number) {
+        /*if (guessNumber == number) {
             message = "Your random number is " + String.valueOf(guessNumber) + ". Good job!";
             sessionStorage.put(id, new Random().nextInt(100));
         } else if (guessNumber > number) {
             message = "Your random number is smaller than " + String.valueOf(guessNumber) + ". Try again!";
         } else if (guessNumber < number) {
             message = "Your random number is greater than " + String.valueOf(guessNumber) + ". Try again!";
-        }
+        }*/
 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
